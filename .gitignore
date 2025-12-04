@@ -3,3 +3,35 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# System
+.DS_Store
+Thumbs.db
+
+# PlatformIO зависимости
+lib_deps/
+
+# Скомпилированные файлы
+*.elf
+*.bin
+*.hex
+
+# Настройки WiFi 
+*_private.h
+*secret.h
+
+# Секретные файлы конфигурации
+config_secret.h
+secrets.h
+private_config.h
+*_secret.h
+*_private.h
+credentials.h

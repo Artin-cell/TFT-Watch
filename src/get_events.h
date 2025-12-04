@@ -7,9 +7,10 @@
 #include <ArduinoJson.h>
 #include <StringUtils.h>
 #include "TimesNRCyr6.h"
+#include "config_secret.h"
 
 // СДЕЛАТЬ ЕЩЕ ОДНО РАЗВЕРТЫВАНИЕ
-const char *scriptUrl = "https://script.google.com/macros/s/AKfycbyrc_jwRonefB7LooTT1soxCicG4nReGN0KkO9IdFHEgRFRHAuAkf62D45eMehO-c8pKg/exec?action=sendCals";
+const char *scriptUrl = GOOGLE_SCRIPT_URL;
 const int displayWidth = 128;
 
 void parseResponse(const String &payload)

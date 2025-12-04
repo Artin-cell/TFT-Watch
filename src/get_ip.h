@@ -3,9 +3,10 @@
 #include <ArduinoJson.h>
 #include <Weather.h>
 #include <weather_icons.h>
+#include "config_secret.h"
 
 // Основной URL для отправки IP
-const char *ipScriptUrl = "https://script.google.com/macros/s/AKfycbyrc_jwRonefB7LooTT1soxCicG4nReGN0KkO9IdFHEgRFRHAuAkf62D45eMehO-c8pKg/exec?action=IP&value=";
+const char *ipScriptUrl = GOOGLE_SCRIPT_IP_URL;
 
 // Вспомогательная функция для парсинга строк с числами через запятую
 void parseNumberString(const String &numberStr, int *outputArray, int size)

@@ -7,8 +7,8 @@
 #include "Draw.h"
 #include "TFT.h"
 
-#define AP_SSID "Tattelecom_98B3" // "13"  Define the WiFi SSID
-#define AP_PASS "pTYcRjDi" // "88187488" // Define the WiFi password
+#include "config_secret.h"
+
 #define TFT_CS D3
 #define TFT_DC D8
 #define TFT_RST D6
