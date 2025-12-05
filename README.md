@@ -28,7 +28,7 @@
 ## 📋 Содержание
 
 - [Схема подключения](#-схема-подключения)
-- [Настройка проекта](#-настройка-проекта)
+- [Настройка проекта](#настройка-проекта) 
 - [Структура проекта](#-структура-проекта)
 - [Зависимости](#-зависимости)
 - [Использование](#-использование)
@@ -304,7 +304,12 @@ MIT License with Non-Commercial Clause
 
 ### 🚀 Начните использовать сегодня!
 
-[![PlatformIO](https://img.shields.io/badge/PlatformIO- готово-FF6F00?style=for-the-badge&logo=platformio)](https://platformio.org/)
+[![PlatformIO](https://img.shields.io/badge/PlatformIO-готово-FF6F00?style=for-the-badge&logo=platformio)](https://platformio.org/)
 [![ESP8266](https://img.shields.io/badge/ESP8266-поддерживается-00BFFF?style=for-the-badge&logo=espressif)](https://www.espressif.com/)
 
 </div>
+
+
+
+
+
