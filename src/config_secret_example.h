@@ -13,6 +13,6 @@
 
 // Другие настройки
 #define NTP_SERVER "pool.ntp.org"
-#define TIMEZONE_OFFSET //Your_UTC  
+#define TIMEZONE_OFFSET ____ //Your_UTC  
 
 #endif
