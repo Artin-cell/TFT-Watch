@@ -13,6 +13,6 @@
 
 // Другие настройки
 #define NTP_SERVER "pool.ntp.org"
-#define TIMEZONE_OFFSET 10800  // UTC+3 в секундах
+#define TIMEZONE_OFFSET //Your_UTC  
 
 #endif
