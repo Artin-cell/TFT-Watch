@@ -11,20 +11,14 @@
 
 ## 🔌 Схема подключения
 ESP8266 TFT Display
+1. D3 ------> CS (Chip Select)
+2. D8 ------> DC (Data/Command)
+3. D6 ------> RST (Reset)
+4. D7 ------> SDA (Data)
+5. D5 ------> SCL (Clock)
+6. 3.3V ------> VCC (Power)
+7. GND ------> GND (Ground)
 
-D3 ------> CS (Chip Select)
-
-D8 ------> DC (Data/Command)
-
-D6 ------> RST (Reset)
-
-D7 ------> SDA (Data)
-
-D5 ------> SCL (Clock)
-
-3.3V ------> VCC (Power)
-
-GND ------> GND (Ground)
 
 
 ## ⚙️ Настройка

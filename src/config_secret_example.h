@@ -11,7 +11,7 @@
 #define GOOGLE_SCRIPT_URL "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"
 #define GOOGLE_SCRIPT_IP_URL "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?action=IP&value="
 
-// Другие секретные настройки
+// Другие настройки
 #define NTP_SERVER "pool.ntp.org"
 #define TIMEZONE_OFFSET 10800  // UTC+3 в секундах
 

@@ -3,6 +3,7 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+
 # PlatformIO
 .pio/
 .pioenvs/
@@ -35,3 +36,4 @@ private_config.h
 *_secret.h
 *_private.h
 credentials.h
+
