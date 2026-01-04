@@ -76,7 +76,7 @@ void parseWeatherData(const String &payload)
   Serial.print("Влажность график: ");
   Serial.println(humidityChartStr); // Выводим исходную строку
   DrawWeather(humidityChartStr, tft.color565(132, 0, 255), 2);
-
+  delay(1000);
   // 7. Температура график (24 значения)
   String tempChartStr = root[4][0].as<String>();
   int tempChart[24];
@@ -305,12 +305,12 @@ void parseWeatherData(const String &payload)
   tft.setCursor(tft.getCursorX() + 10, pos_y);
   tft.print(String(maxTemp));
 
-  tft.fillCircle(tft.getCursorX() + 5, pos_y+3, 3.5, TFT_WHITE);
-  tft.fillCircle(tft.getCursorX() + 5, pos_y+3, 1.25, TFT_BLACK);
-  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y+2, tft.color565(127, 127, 127));
-  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y+4, tft.color565(127, 127, 127));
-  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y+2, tft.color565(127, 127, 127));
-  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y+4, tft.color565(127, 127, 127));
+  tft.fillCircle(tft.getCursorX() + 5, pos_y + 3, 3.5, TFT_WHITE);
+  tft.fillCircle(tft.getCursorX() + 5, pos_y + 3, 1.25, TFT_BLACK);
+  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y + 2, tft.color565(127, 127, 127));
+  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y + 4, tft.color565(127, 127, 127));
+  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y + 2, tft.color565(127, 127, 127));
+  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y + 4, tft.color565(127, 127, 127));
   tft.setCursor(tft.getCursorX() + 11, pos_y);
   tft.print("C");
 

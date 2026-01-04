@@ -8,11 +8,10 @@
 #include <Connect.h>
 #include "draw_time.h"
 #include "get_events.h"
-#include <GyverPortal.h>
 #include <get_ip.h>
 #include <cmath>
+#include "Portal.h"
 
-GyverPortal ui;
 int sec = 0;
 uint16_t rgbTo565(uint8_t r, uint8_t g, uint8_t b)
 {
@@ -35,20 +34,27 @@ void setup()
   inic();
 
   // Вывод изображения на дисплей
-  settings();
-  delay(1000);
+  // settings();
+  // delay(1000);
 
   // inic();
   tft.fillScreen(ST77XX_BLACK);
 
   // tft.setRotation(0);
   // getExternalIP();
+  getWiFiList();
 
-  // ui.attachBuild(build);
-  // ui.attach(action);
-  // ui.start();
+  // Запускаем точку доступа для настройки
+  WiFi.mode(WIFI_AP);
+  WiFi.softAP("ESP_Config", "12345678");
 
-  
+  // Настраиваем веб-интерфейс
+  ui.attachBuild(build);
+  ui.attach(action);
+  ui.start();
+
+ 
+  // settings();
 }
 
 // Использовать в будущем неблокируеммый таймер
@@ -56,19 +62,17 @@ void setup()
 void loop()
 {
 
-  // ui.tick();
+  ui.tick();
 
+  // draw_time();
 
-  draw_time();
+  // delay(8000);
 
-  delay(8000);
+  //  fetchCalendarEvents();
 
-  fetchCalendarEvents();
+  // delay(8000);
 
-  delay(8000);
+  // getExternalIP();
 
-
-  getExternalIP();
-
-  delay(8000);
+  // delay(5000);
 }
