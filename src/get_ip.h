@@ -38,6 +38,8 @@ void parseNumberString(const String &numberStr, int *outputArray, int size)
 
 void parseWeatherData(const String &payload)
 {
+  tft.setFont(NULL);
+  tft.setTextColor(ST77XX_WHITE);
   // Создаем JSON-документ
   const size_t capacity = JSON_ARRAY_SIZE(12) + 500;
   DynamicJsonDocument doc(capacity);
@@ -65,24 +67,18 @@ void parseWeatherData(const String &payload)
   String precipChartStr = root[5][0].as<String>();
   int precipChart[24];
   parseNumberString(precipChartStr, precipChart, 24);
-  Serial.print("Осадки график: ");
-  Serial.println(precipChartStr); // Выводим исходную строку
   DrawWeather(precipChartStr, tft.color565(209, 161, 255), 3);
 
   // 6. Влажность график (24 значения)
   String humidityChartStr = root[6][0].as<String>();
   int humidityChart[24];
   parseNumberString(humidityChartStr, humidityChart, 24);
-  Serial.print("Влажность график: ");
-  Serial.println(humidityChartStr); // Выводим исходную строку
   DrawWeather(humidityChartStr, tft.color565(132, 0, 255), 2);
 
   // 7. Температура график (24 значения)
   String tempChartStr = root[4][0].as<String>();
   int tempChart[24];
   parseNumberString(tempChartStr, tempChart, 24);
-  Serial.print("Температура график: ");
-  Serial.println(tempChartStr); // Просто выводим исходную строку
   DrawWeather(tempChartStr, tft.color565(255, 38, 38), 1);
 
   int x0 = 5; // начальная координата
@@ -294,23 +290,25 @@ void parseWeatherData(const String &payload)
   Serial.print("Макс температура: ");
   Serial.println(maxTemp);
 
+  int medTemp = (maxTemp + minTemp) / 2;
+
   int pos_y = 28;
   tft.setCursor(8, pos_y);
   tft.setTextSize(2);
-  tft.print(String(minTemp));
+  tft.print(String(medTemp));
 
-  tft.drawLine(tft.getCursorX() + 1, pos_y + 12, tft.getCursorX() + 4, pos_y, TFT_WHITE);
-  tft.drawLine(tft.getCursorX() + 2, pos_y + 12, tft.getCursorX() + 5, pos_y, TFT_WHITE);
+  // tft.drawLine(tft.getCursorX() + 1, pos_y + 12, tft.getCursorX() + 4, pos_y, TFT_WHITE);
+  // tft.drawLine(tft.getCursorX() + 2, pos_y + 12, tft.getCursorX() + 5, pos_y, TFT_WHITE);
 
-  tft.setCursor(tft.getCursorX() + 10, pos_y);
-  tft.print(String(maxTemp));
+  // tft.setCursor(tft.getCursorX() + 10, pos_y);
+  // tft.print(String(maxTemp));
 
-  tft.fillCircle(tft.getCursorX() + 5, pos_y+3, 3.5, TFT_WHITE);
-  tft.fillCircle(tft.getCursorX() + 5, pos_y+3, 1.25, TFT_BLACK);
-  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y+2, tft.color565(127, 127, 127));
-  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y+4, tft.color565(127, 127, 127));
-  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y+2, tft.color565(127, 127, 127));
-  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y+4, tft.color565(127, 127, 127));
+  tft.fillCircle(tft.getCursorX() + 5, pos_y + 3, 3.5, TFT_WHITE);
+  tft.fillCircle(tft.getCursorX() + 5, pos_y + 3, 1.25, TFT_BLACK);
+  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y + 2, tft.color565(127, 127, 127));
+  tft.drawPixel(tft.getCursorX() + 5 - 1, pos_y + 4, tft.color565(127, 127, 127));
+  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y + 2, tft.color565(127, 127, 127));
+  tft.drawPixel(tft.getCursorX() + 5 + 1, pos_y + 4, tft.color565(127, 127, 127));
   tft.setCursor(tft.getCursorX() + 11, pos_y);
   tft.print("C");
 
