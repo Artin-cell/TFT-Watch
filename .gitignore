@@ -1,21 +1,9 @@
-.pio
-.vscode/.browse.c_cpp.db*
-.vscode/c_cpp_properties.json
-.vscode/launch.json
-.vscode/ipch
-
 # PlatformIO
 .pio/
 .pioenvs/
 .piolibdeps/
-
-# VS Code
-.vscode/
-*.code-workspace
-
-# System
-.DS_Store
-Thumbs.db
+.pio/build/
+.pio/libdeps/
 
 # PlatformIO зависимости
 lib_deps/
@@ -24,16 +12,45 @@ lib_deps/
 *.elf
 *.bin
 *.hex
+*.o
+*.a
+*.d
+*.lst
+*.sym
+*.map
+*.lss
 
-# Настройки WiFi 
-*_private.h
-*secret.h
+# VS Code
+.vscode/
+!.vscode/settings.json  # ← сохранить настройки
+!.vscode/tasks.json     # ← сохранить задачи
+!.vscode/launch.json    # ← сохранить конфигурацию отладки
+*.code-workspace
+.vscode/.browse.c_cpp.db*
+.vscode/ipch
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временные файлы облачных хранилищ
+.tmp.driveupload/
+.tmp.drivedownload/
+*.tmp
+temp/
 
 # Секретные файлы конфигурации
+*_private.h
+*secret.h
+*_secret.h
+*_private.h
 config_secret.h
 secrets.h
 private_config.h
-*_secret.h
-*_private.h
 credentials.h
+wifi_credentials.h
 
+# Логи и отчёты
+*.log
+/sitemap.xml
