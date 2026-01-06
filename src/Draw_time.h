@@ -6,29 +6,55 @@ const int ledPin = D1;
 int x_num = 0;
 int y_num = 0;
 extern String formattedTime;
-const uint16_t *name = b0;
 
-void draw_time()
+// Объявляем переменные времени как глобальные, чтобы они были доступны в обеих функциях
+char hour1, hour2, minute1, minute2, second1, second2;
+
+// Объявляем массивы цифр
+extern const uint16_t b0[];
+extern const uint16_t b1[];
+extern const uint16_t b2[];
+extern const uint16_t b3[];
+extern const uint16_t b4[];
+extern const uint16_t b5[];
+extern const uint16_t b6[];
+extern const uint16_t b7[];
+extern const uint16_t b8[];
+extern const uint16_t b9[];
+
+void get_time()
 {
   tft.fillScreen(ST77XX_BLACK);
   uptime();
   String time_now = formattedTime;
-  Serial.println("Текущее время: " + time_now);
 
-  // Extract each character as a separate variable
-  char hour1 = time_now[0];
-  char hour2 = time_now[1];
-  char minute1 = time_now[3];
-  char minute2 = time_now[4];
-  char second1 = time_now[6];
-  char second2 = time_now[7];
-  Serial.println(hour1);
-  Serial.println(hour2);
-  Serial.println(minute1);
-  Serial.println(minute2);
-  Serial.println(second1);
-  Serial.println(second2);
+  // Проверяем длину строки времени перед доступом к символам
+  if (time_now.length() >= 8)
+  {
+    // Extract each character as a separate variable
+    hour1 = time_now[0];
+    hour2 = time_now[1];
+    minute1 = time_now[3];
+    minute2 = time_now[4];
+    second1 = time_now[6];
+    second2 = time_now[7];
+  }
+  else
+  {
+    // Значения по умолчанию, если строка времени некорректна
+    hour1 = '0';
+    hour2 = '0';
+    minute1 = '0';
+    minute2 = '0';
+    second1 = '0';
+    second2 = '0';
+    Serial.println("Ошибка: некорректный формат времени");
+  }
+
+  // Преобразуем часы в число
   int hours = (hour1 - '0') * 10 + (hour2 - '0');
+
+  // Управляем яркостью светодиода в зависимости от времени
   if ((hours >= 8) && (hours < 22))
   {
     analogWrite(ledPin, 255); // Яркий свет днем
@@ -37,46 +63,40 @@ void draw_time()
   {
     analogWrite(ledPin, 15); // Тусклый свет ночью
   }
+}
 
-  // Предполагаем, что b0, b1, ..., b9 объявлены как массивы типа uint16_t
+void draw_time()
+{
+  get_time(); // Получаем актуальное время
+
+  // Массив указателей на массивы с изображениями цифр
   const uint16_t *b[] = {b0, b1, b2, b3, b4, b5, b6, b7, b8, b9};
 
-  // Получаем время и выводим на дисплей
-  //  Выносим общие переменные
+  // Размеры изображений цифр
   int width = 37;
   int height = 48;
 
-  // Координаты для каждой цифры
+  // Координаты для каждой цифры (часы: 0-1, минуты: 2-3)
   int x_coords[] = {27, 64, 27, 64};
   int y_coords[] = {32, 32, 80, 80};
+
+  // Массив цифр для отрисовки
   char digits[] = {hour1, hour2, minute1, minute2};
 
   // Отрисовываем все 4 цифры в цикле
   for (int i = 0; i < 4; i++)
   {
-    switch (digits[i])
-    {
-    case '0':
-    case '1':
-    case '2':
-    case '3':
-    case '4':
-    case '5':
-    case '6':
-    case '7':
-    case '8':
-    case '9':
+    if (digits[i] >= '0' && digits[i] <= '9')
     {
       int index = digits[i] - '0';
-      const uint16_t *name = b[index];
-      drawImage(name, x_coords[i], y_coords[i], width, height, width, height, 0);
-    }
-    break;
+      if (index >= 0 && index <= 9)
+      {
+        const uint16_t *name = b[index];
+        drawImage(name, x_coords[i], y_coords[i], width, height, width, height, 0);
+      }
     }
   }
 
-  // Optional: Print each character to verify
-  Serial.println("Часы: " + String(hour1) + String(hour2) + ", Минуты: " + String(minute1) + String(minute2) + ", Секунды: " + String(second1) + String(second2));
-
-  // delay(5000);
+  // Небольшая задержка перед обновлением (по желанию)
+  // delay(1000);
 }
