@@ -4,9 +4,35 @@
 #include <Weather.h>
 #include <weather_icons.h>
 #include "config_secret.h"
+#include "Connect.h"
 
+static String google_ip_url;
+static const char *ipScriptUrl = nullptr;
 // Основной URL для отправки IP
-const char *ipScriptUrl = GOOGLE_SCRIPT_IP_URL;
+
+static void initGoogleipScriptUrl()
+{
+  if (ipScriptUrl != nullptr)
+    return;
+
+  String scriptId = getString("id_script");
+
+  if (scriptId.length() == 0)
+  {
+    Serial.println(F("ERROR: Google Script ID is empty"));
+    return;
+  }
+
+  google_ip_url =
+      "https://script.google.com/macros/s/" +
+      scriptId +
+      "/exec?action=IP&value=";
+
+  ipScriptUrl = google_ip_url.c_str();
+
+  Serial.print(F("Google IP Script URL: "));
+  Serial.println(google_ip_url);
+}
 
 // Вспомогательная функция для парсинга строк с числами через запятую
 void parseNumberString(const String &numberStr, int *outputArray, int size)
@@ -523,6 +549,14 @@ void parseWeatherData(const String &payload)
 
 String getExternalIP()
 {
+  initGoogleipScriptUrl();
+
+  if (ipScriptUrl == nullptr)
+  {
+    Serial.println(F("ERROR: ipScriptUrl not initialized"));
+    return "";
+  }
+
   WiFiClient client;
   HTTPClient http;
 
@@ -554,7 +588,7 @@ String getExternalIP()
   secureClient.setInsecure();
   https.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
 
-  String fullUrl = ipScriptUrl + externalIP;
+  String fullUrl = google_ip_url + externalIP;
   Serial.println("Sending to: " + fullUrl);
   // String data = "[[\"Kazan'\"],[2],[3],[\"02.11.2025\"],[\"124, 124, 124, 124, 140, 140, 140, 140, 140, 140, 140, 140, 124, 124, 109, 109, 124, 124, 124, 124, 124, 124, 140, 140\"],[\"155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155\"],[\"109, 109, 110, 111, 111, 111, 111, 111, 113, 114, 118, 119, 120, 120, 121, 124, 122, 120, 117, 117, 116, 116, 116, 120\"],[\"3, 2, 3, 2, 3\"],[\"129, 140, 119, 129\"],[0],[3]]";
   // parseWeatherData(data);

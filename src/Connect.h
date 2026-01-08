@@ -28,9 +28,11 @@ extern String wifiNetworks[MAX_NETWORKS]; // ← Объявление масси
 extern int networkCount;                  // ← Фактическое количество найденных сетей
 
 // переменные
+int debug_mod = 0;
 bool valCheck;
 bool valSwitch;
 String valText;
+String valText1;
 int valNum;
 char valPass[10];
 float valSpin;
@@ -71,7 +73,7 @@ void saveString(const String &key, const String &value)
   Serial.print(key);
   Serial.print(F(" = "));
   Serial.println(value);
-  
+
   if (key == "wifi_ssid")
   {
     // Сохраняем SSID в EEPROM
@@ -109,17 +111,26 @@ void saveString(const String &key, const String &value)
   {
     // Для остальных настроек сохраняем в отдельную область EEPROM
     EEPROM.begin(EEPROM_SIZE);
-    
+
     // Определяем адрес для каждой настройки
     int address = 100; // Начальный адрес для других настроек (после WiFi)
-    
-    if (key == "swt_time_mem") address = 100;
-    else if (key == "swt_cal_mem") address = 110;
-    else if (key == "swt_weat_mem") address = 120;
-    else if (key == "spn_time_mem") address = 130;
-    else if (key == "spn_cal_mem") address = 140;
-    else if (key == "spn_weat_mem") address = 150;
-    else {
+
+    if (key == "swt_time_mem")
+      address = 100;
+    else if (key == "swt_cal_mem")
+      address = 110;
+    else if (key == "swt_weat_mem")
+      address = 120;
+    else if (key == "spn_time_mem")
+      address = 130;
+    else if (key == "spn_cal_mem")
+      address = 140;
+    else if (key == "spn_weat_mem")
+      address = 150;
+    else if (key == "id_script")
+      address = 160;
+    else
+    {
       // Для неизвестных ключей используем map
       stringStorage[key] = value;
       Serial.print(F("Saved to map: "));
@@ -129,16 +140,17 @@ void saveString(const String &key, const String &value)
       EEPROM.end();
       return;
     }
-    
+
     // Сохраняем строку в EEPROM
-    for (size_t i = 0; i < value.length(); i++) {
+    for (size_t i = 0; i < value.length(); i++)
+    {
       EEPROM.write(address + i, value[i]);
     }
     EEPROM.write(address + value.length(), '\0'); // Завершающий ноль
-    
+
     EEPROM.commit();
     EEPROM.end();
-    
+
     Serial.print(F("Saved to EEPROM address "));
     Serial.print(address);
     Serial.print(F(": "));
@@ -165,18 +177,27 @@ String getString(const String &key)
       return String(config.password);
     }
   }
-  
+
   // Читаем другие настройки из EEPROM
   EEPROM.begin(EEPROM_SIZE);
-  
+
   int address = 100;
-  if (key == "swt_time_mem") address = 100;
-  else if (key == "swt_cal_mem") address = 110;
-  else if (key == "swt_weat_mem") address = 120;
-  else if (key == "spn_time_mem") address = 130;
-  else if (key == "spn_cal_mem") address = 140;
-  else if (key == "spn_weat_mem") address = 150;
-  else {
+  if (key == "swt_time_mem")
+    address = 100;
+  else if (key == "swt_cal_mem")
+    address = 110;
+  else if (key == "swt_weat_mem")
+    address = 120;
+  else if (key == "spn_time_mem")
+    address = 130;
+  else if (key == "spn_cal_mem")
+    address = 140;
+  else if (key == "spn_weat_mem")
+    address = 150;
+  else if (key == "id_script")
+    address = 160;
+  else
+  {
     // Для других ключей ищем в map
     EEPROM.end();
     if (stringStorage.find(key) != stringStorage.end())
@@ -185,39 +206,51 @@ String getString(const String &key)
     }
     return String(); // Пустая строка если не найдено
   }
-  
+
   // Читаем строку из EEPROM
   String result = "";
   char ch;
   int i = 0;
-  while (i < 10) { // Максимальная длина строки
+  while (i < 100)
+  { // Максимальная длина строки
     ch = EEPROM.read(address + i);
-    if (ch == '\0' || ch == 255) break;
+    if (ch == '\0' || ch == 255)
+      break;
     result += ch;
     i++;
   }
-  
+
   EEPROM.end();
-  
+
   // Если строка пустая, возвращаем значения по умолчанию
-  if (result.length() == 0) {
-    if (key == "swt_time_mem") result = "1";
-    else if (key == "swt_cal_mem") result = "1";
-    else if (key == "swt_weat_mem") result = "1";
-    else if (key == "spn_time_mem") result = "5";
-    else if (key == "spn_cal_mem") result = "10";
-    else if (key == "spn_weat_mem") result = "15";
+  if (result.length() == 0)
+  {
+    if (key == "swt_time_mem")
+      result = "1";
+    else if (key == "swt_cal_mem")
+      result = "1";
+    else if (key == "swt_weat_mem")
+      result = "1";
+    else if (key == "spn_time_mem")
+      result = "5";
+    else if (key == "spn_cal_mem")
+      result = "10";
+    else if (key == "spn_weat_mem")
+      result = "15";
+    else if (key == "id_script")
+      result = "1";
   }
-  
+
   Serial.print(F("Read from EEPROM: "));
   Serial.print(key);
   Serial.print(F(" = "));
   Serial.println(result);
-  
+
   return result;
 }
 
-String intToString(int number) {
+String intToString(int number)
+{
   return String(number);
 }
 
@@ -318,10 +351,10 @@ void build()
   GP.BREAK();
   GP.SELECT("sel", wifiListStr, valSelect);
   GP.BREAK();
-  GP.TEXT("txt", "Wi-Fi password", valText);
+  GP.TEXT("txt", "Wi-Fi password", valText1);
   GP.BREAK();
-  GP.LABEL("UTC", "val");
-  GP.NUMBER("num", "UTC", valNum);
+  GP.LABEL("Id script", "val");
+  GP.TEXT("id_script", "id_script", valText);
   GP.BREAK();
   GP.HR();
   GP.LABEL("Настройте функции", "val");
@@ -388,11 +421,39 @@ void action()
       }
     }
 
-    if (ui.clickString("txt", valText))
+    if (ui.clickString("txt", valText1))
     {
+      String wifi_pass = valText1;
       Serial.print("Text: ");
+      Serial.println(wifi_pass);
+      saveString("wifi_pass", wifi_pass);
+    }
+
+    if (ui.clickString("id_script", valText))
+    {
+      Serial.print("Input text: ");
       Serial.println(valText);
-      saveString("wifi_pass", valText);
+      String id_script = valText;
+
+      // Ожидаемый префикс и суффикс
+      const String prefix = "https://script.google.com/macros/s/";
+      const String suffix = "/exec";
+
+      int start = id_script.indexOf(prefix);
+      if (start >= 0)
+      {
+        start += prefix.length();
+        int end = id_script.indexOf(suffix, start);
+        if (end > start)
+        {
+          id_script = id_script.substring(start, end); // ← ВАЖНО: теперь id_script = ID
+        }
+      }
+
+      Serial.print("Extracted script ID: ");
+      Serial.println(id_script);
+
+      saveString("id_script", id_script);
     }
 
     if (ui.clickInt("num", valNum))
@@ -411,7 +472,7 @@ void action()
     {
       swt_time = valSwitch;
       Serial.print("Switch time: ");
-      Serial.println(swt_time);      
+      Serial.println(swt_time);
       saveString("swt_time_mem", intToString(swt_time));
     }
 
@@ -461,6 +522,19 @@ void action()
 // Основная функция настройки
 void settings()
 {
+  String ssid1 = "1";
+  String pass1 = "1";
+  if (debug_mod == 1)
+  {
+    ssid1 = "1";
+    pass1 = "1";
+  }
+  else
+  {
+    ssid1 = getString("wifi_ssid");
+    pass1 = getString("wifi_pass");
+  }
+
   // Инициализация дисплея
   tft.initR(INITR_BLACKTAB);
   tft.fillScreen(ST7735_BLACK);
@@ -469,8 +543,6 @@ void settings()
   tft.setTextColor(ST7735_WHITE);
   tft.setTextSize(TSize);
 
-  String ssid1 = getString("wifi_ssid");
-  String pass1 = getString("wifi_pass");
   Serial.println(ssid1);
   Serial.println(pass1);
 
@@ -538,8 +610,6 @@ void settings()
   tft.print("AP IP: ");
   tft.println(WiFi.softAPIP());
   tft.println("Waiting for config...");
-  
-  
 
   // Ждем нажатия кнопки APPLY
   while (btn == 0)
