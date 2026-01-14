@@ -3,7 +3,6 @@
 #ifndef CONFIG_SECRET_H
 #define CONFIG_SECRET_H
 
-// Другие настройки
 #define NTP_SERVER "pool.ntp.org"
 #define TIMEZONE_OFFSET ____ //Your_UTC  
 
