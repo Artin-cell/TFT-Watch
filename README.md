@@ -8,6 +8,8 @@
 
 **Умные TFT-часы на ESP8266** с цветным дисплеем 128×160 пикселей, отображающие время, календарь и погоду с графиками.
 
+[![Roadmap](https://img.shields.io/badge/View-Roadmap-blue?style=for-the-badge)](ссылка_на_проект)
+
 </div>
 
 ---
