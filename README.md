@@ -1,3 +1,19 @@
+<div align="center">
+
+<a href="https://github.com/Artin-cell/TFT-Watch/blob/main/README.md">
+  <img src="https://img.shields.io/badge/🇷🇺_Русский-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+<a href="https://github.com/Artin-cell/TFT-Watch/blob/main/README(EN).md">
+  <img src="https://img.shields.io/badge/🇬🇧_English-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+</div>
+
+
+
+
+
+
 # ⌚ TFT-Watch
 
 <div align="center">
