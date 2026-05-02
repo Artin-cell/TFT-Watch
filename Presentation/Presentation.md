@@ -1,6 +1,3 @@
-Вот аккуратно оформленный и структурированный вариант в Markdown:
-
-````md
 # 📟 TFT-Smart Watch
 
 ## 🧩 Описание проекта
@@ -65,12 +62,10 @@ ESP8266 имеет ограниченные ресурсы, поэтому ис�
 
 ---
 
-## 🖼️ Иллюстрации
-```md
-![[Pasted image 20250927185324.png]]
-![[Pasted image 20250927211829.png]]
+![](https://github.com/Artin-cell/TFT-Watch/blob/2fea5f9f2100aa4472ee47b25ea9fe100edb4061/Presentation/Pasted%20image%2020250927185324.png)
+![](https://github.com/Artin-cell/TFT-Watch/blob/main/Presentation/Pasted%20image%2020250927211829.png)
 ![[Схема работы проекта TFT-smart watch.canvas]]
-````
+
 
 ---
 
