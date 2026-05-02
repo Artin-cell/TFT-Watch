@@ -1,5 +1,8 @@
 # 📟 TFT-Smart Watch
 
+![](https://github.com/Artin-cell/TFT-Watch/blob/2fea5f9f2100aa4472ee47b25ea9fe100edb4061/Presentation/Pasted%20image%2020250927185324.png)
+![](https://github.com/Artin-cell/TFT-Watch/blob/main/Presentation/Pasted%20image%2020250927211829.png)
+
 ## 🧩 Описание проекта
 **TFT-Smart Watch** — это стационарное мультифункциональное устройство с открытым исходным кодом.  
 На данный момент проект находится на стадии разработки (~35% готовности).
@@ -61,11 +64,8 @@ ESP8266 имеет ограниченные ресурсы, поэтому ис�
   - настройка параметров пользователем  
 
 ---
-
-![](https://github.com/Artin-cell/TFT-Watch/blob/2fea5f9f2100aa4472ee47b25ea9fe100edb4061/Presentation/Pasted%20image%2020250927185324.png)
-![](https://github.com/Artin-cell/TFT-Watch/blob/main/Presentation/Pasted%20image%2020250927211829.png)
-![[Схема работы проекта TFT-smart watch.canvas]]
-
+## Упрощенная схема работы
+![](https://github.com/Artin-cell/TFT-Watch/blob/main/Presentation/%D0%A1%D1%85%D0%B5%D0%BC%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%20TFT-smart%20watch.png)
 
 ---
 
