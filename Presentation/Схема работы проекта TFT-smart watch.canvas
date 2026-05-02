@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"42050f1102f23039","type":"text","text":"TFT-smart watch","x":321,"y":-500,"width":179,"height":60},
+		{"id":"47ce7729da2cd403","type":"text","text":"ESP8266 подключается к WI-FI","x":361,"y":-240,"width":205,"height":60},
+		{"id":"6deed22ef5976865","type":"text","text":"Отправляет запрос на api.ipify.org и получает свой общедоступный IP","x":-400,"y":240,"width":250,"height":80},
+		{"id":"32fd65a73626c948","type":"text","text":"Google таблицы делают запрос ip-api.com/(полученный IP) и получают координаты","x":-375,"y":432,"width":250,"height":88},
+		{"id":"9ebc07362857ab47","type":"text","text":"Google таблицы делают запрос на api.open-meteo.com и получают параметры погоды, такие как: \n\"Время\"\n\"Температура\"\n\"Осадки\"\n\"Влажность\"\n\"Код погоды\" и несколько других в формате JSON на 100+ строк","x":-300,"y":640,"width":400,"height":200},
+		{"id":"5fea71bbe85fc0a6","type":"text","text":"Google таблицы обрабатывают полученные данные, убирают лишнее, делают расчеты для построения графиков и отправляют значения в виде массива массивов на 10 значений","x":-297,"y":930,"width":250,"height":170},
+		{"id":"6696c4b29abbbc5b","type":"text","text":"Погода","x":44,"y":20,"width":112,"height":60},
+		{"id":"15ad472f6a8672d5","type":"text","text":"Отправляет запрос на **NTP-сервис** для синхронизации времени и получает текущее время по UTC","x":411,"y":200,"width":309,"height":100},
+		{"id":"3ec6cd3d6412ea0e","type":"text","text":"ESP выводит полученные значения на дисплей в организованном виде за счет геометрических фигур и текста с использованием графической библиотеки Adafruit","x":460,"y":1320,"width":250,"height":180},
+		{"id":"c603bbcef3899411","type":"text","text":"Сопоставляет числа с заранее записанными в памяти изображениями этих чисел","x":471,"y":643,"width":250,"height":77},
+		{"id":"9a0f751d55c07e16","type":"text","text":"Google таблицы делают поочередные запросы к API Google Calendar по указанным id календарей","x":985,"y":360,"width":250,"height":102},
+		{"id":"a261039f5cfe3c50","type":"text","text":"Погода","x":415,"y":20,"width":112,"height":60},
+		{"id":"9a79737dcb495873","type":"text","text":"Календарь","x":898,"y":-17,"width":142,"height":50},
+		{"id":"21a2c9252e14b8c2","type":"text","text":"Google таблицы обрабатывают полученные данные, убирают лишнее, структурируют мероприятия по дате, времени, параметру \"Весь день\", цвету календаря и продолжительности ","x":1080,"y":643,"width":250,"height":177},
+		{"id":"fae820a24e964c02","type":"text","text":"Google таблицы возвращают ответ по первоначальной ссылке-запросу со структурированными данными календаря","x":997,"y":1084,"width":250,"height":136},
+		{"id":"52176623aa8a0a5a","type":"text","text":"Домашняя метеостанция","x":-1080,"y":-440,"width":180,"height":80},
+		{"id":"6ae08e57d3112efb","type":"text","text":"Данные получаются по датчику влажности и температуры","x":-1070,"y":-224,"width":250,"height":84},
+		{"id":"cc5d8ba8efb2eafe","type":"text","text":"Получение актуального UTC по запросу к google таблице","x":153,"y":411,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"b828d6ae5d3df855","fromNode":"6deed22ef5976865","fromSide":"bottom","toNode":"32fd65a73626c948","toSide":"top","label":"Ссылка-запрос к google таблицам с передачей своего IP"},
+		{"id":"5818ef4b3ab29157","fromNode":"32fd65a73626c948","fromSide":"bottom","toNode":"9ebc07362857ab47","toSide":"top"},
+		{"id":"fb9568fdfef850ad","fromNode":"9ebc07362857ab47","fromSide":"bottom","toNode":"5fea71bbe85fc0a6","toSide":"top","label":"Планируется, закончено на 50%"},
+		{"id":"e8d1319d43ddd0ca","fromNode":"5fea71bbe85fc0a6","fromSide":"bottom","toNode":"3ec6cd3d6412ea0e","toSide":"top","label":"ESP получает в ответ на первоначальную ссылку"},
+		{"id":"f2a990b357a3a9e3","fromNode":"42050f1102f23039","fromSide":"bottom","toNode":"47ce7729da2cd403","toSide":"top"},
+		{"id":"625706e58cb97f84","fromNode":"6696c4b29abbbc5b","fromSide":"bottom","toNode":"6deed22ef5976865","toSide":"top"},
+		{"id":"045812e26ba689d9","fromNode":"15ad472f6a8672d5","fromSide":"bottom","toNode":"c603bbcef3899411","toSide":"top"},
+		{"id":"0734c2a805020e3c","fromNode":"c603bbcef3899411","fromSide":"bottom","toNode":"3ec6cd3d6412ea0e","toSide":"top"},
+		{"id":"f9a0ee593c77ae20","fromNode":"9a79737dcb495873","fromSide":"bottom","toNode":"9a0f751d55c07e16","toSide":"top","label":"Ссылка-запрос к google таблицам "},
+		{"id":"fbb373903e7678e9","fromNode":"a261039f5cfe3c50","fromSide":"bottom","toNode":"15ad472f6a8672d5","toSide":"top"},
+		{"id":"f5a8e3e38dce35b1","fromNode":"47ce7729da2cd403","fromSide":"bottom","toNode":"6696c4b29abbbc5b","toSide":"top"},
+		{"id":"4a25c593e153c245","fromNode":"47ce7729da2cd403","fromSide":"bottom","toNode":"a261039f5cfe3c50","toSide":"top"},
+		{"id":"16e599b181d75f5e","fromNode":"47ce7729da2cd403","fromSide":"bottom","toNode":"9a79737dcb495873","toSide":"top"},
+		{"id":"89ebf7f5da092dfd","fromNode":"9a0f751d55c07e16","fromSide":"bottom","toNode":"21a2c9252e14b8c2","toSide":"top"},
+		{"id":"c98164d11e3cec22","fromNode":"21a2c9252e14b8c2","fromSide":"bottom","toNode":"fae820a24e964c02","toSide":"top"},
+		{"id":"9764683fce3395f8","fromNode":"fae820a24e964c02","fromSide":"bottom","toNode":"3ec6cd3d6412ea0e","toSide":"top"},
+		{"id":"a1aeaa3285adbadd","fromNode":"47ce7729da2cd403","fromSide":"bottom","toNode":"52176623aa8a0a5a","toSide":"top","label":"Планируется"},
+		{"id":"e05ebf68bc18ed67","fromNode":"52176623aa8a0a5a","fromSide":"bottom","toNode":"6ae08e57d3112efb","toSide":"top"},
+		{"id":"0e9cc064535407bd","fromNode":"15ad472f6a8672d5","fromSide":"bottom","toNode":"cc5d8ba8efb2eafe","toSide":"top","label":"Планируется"}
+	]
+}
