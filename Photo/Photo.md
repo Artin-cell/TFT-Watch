@@ -1,7 +1,9 @@
 ## Оглавление
 
 1. [Проект умных часов](#watch-project)
-2. [Другие технические работы](#other-works)
+2. [Технические работы](#other-works)
+3. [Шарнир для протеза кота](#sharnir)
+   
 <a id="watch-project"></a>
 ## Проект умных часов
 Подробно можно посмотреть по [ссылке](https://github.com/Artin-cell/TFT-Watch)
@@ -35,7 +37,7 @@
 
 ---
 <a id="other-works"></a>
-## Некоторые другие технические работы
+## Некоторые технические работы для дипломов
 *Чертежи составлены по 3D моделям, выполненным мною*
 
 <table>
@@ -68,5 +70,18 @@
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Шпиндель.png" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Шпиндель">
       <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">Шпиндель сверлильного станка 2Н118</p>
     </td>
+  </tr>
+</table>
+
+---
+<a id="sharnir"></a>other-works
+## Шарнир для протеза кота
+*Оригинальный файл был утерян, других фото нет*
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/%D1%88%D0%B0%D1%80%D0%BD%D0%B8%D1%80.jpg" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Шарнир для кота">
+  
+
   </tr>
 </table>
