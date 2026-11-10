@@ -42,25 +42,31 @@
   <tr>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/4-ая ось коробки скоростей 16К20.jpg" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="4-ая ось коробки скоростей 16К20">
+      <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">4-ая ось коробки скоростей 16К20</p>
     </td>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Реечная передача коробки подач 6Р82.jpg" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Реечная передача коробки подач 6Р82">
+      <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">Реечная передача коробки подач 6Р82</p>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Узел.jpg" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Узел (jpg)">
+      <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">Основание радиально-сверлильного станка 2М55.</p>
     </td>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Узел.png" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Узел (png)">
+      <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">Шпиндель фрезерного центра VMC1160</p>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Узелок.jpg" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Узелок">
+      <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">4-ая ось коробки скоростей станка 1К62</p>
     </td>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Шпиндель.png" style="max-width: 100%; width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Шпиндель">
+      <p style="margin-top: 10px; font-size: 14px; color: #444; font-weight: 600;">Шпиндель сверлильного станка 2Н118</p>
     </td>
   </tr>
 </table>
