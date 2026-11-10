@@ -1,10 +1,10 @@
-![](<https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/4-ая ось коробки скоростей 16К20.jpg>)
-![](<https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/5-ая ось коробки скоростей токарно-винторезного станка 1К62 _ 1К62-02.pdf>)
-![](<https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/Реечная передача коробки подач 6Р82.jpg>)
-![](https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/Узел.jpg)
-![](https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/Узел.png)
-![](https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/Узелок.jpg)
-![](https://github.com/Artin-cell/TFT-Watch/tree/main/Photo/Projects_diplomi/Шпиндель.png)
+![](<https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/4-ая ось коробки скоростей 16К20.jpg>)
+[5-ая ось коробки скоростей токарно-винторезного станка 1К62 _ 1К62-02.pdf](<5-ая ось коробки скоростей токарно-винторезного станка 1К62 _ 1К62-02.pdf>)
+![](<https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Реечная передача коробки подач 6Р82.jpg>)
+![](https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Узел.jpg)
+![](https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Узел.png)
+![](https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Узелок.jpg)
+![](https://raw.githubusercontent.com/Artin-cell/TFT-Watch/main/Photo/Projects_diplomi/Шпиндель.png)
 
 
 
